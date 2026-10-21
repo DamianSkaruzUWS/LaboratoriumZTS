@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Powiadomienia</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/png" sizes="196x196" href="icons/favicon-196.png" />
+    <link rel="apple-touch-icon" href="icons/apple-icon-180.png" />
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 0 auto; padding: 1rem; line-height: 1.5; color: #111; background: #fff; }
+      fieldset { margin: 1rem 0; padding: 1rem; border: 1px solid #767676; border-radius: 6px; }
+      label { display: block; margin-top: 0.75rem; font-weight: 600; }
+      input, select, textarea { width: 100%; box-sizing: border-box; padding: 0.5rem; font: inherit; border: 1px solid #767676; border-radius: 4px; }
+      button { padding: 0.6rem 1rem; margin: 0.25rem 0.25rem 0.25rem 0; font: inherit; color: #fff; background: #0b57d0; border: 0; border-radius: 4px; cursor: pointer; }
+      button:hover, button:focus-visible { background: #0842a0; }
+      #error { color: #b00020; min-height: 1.5rem; font-weight: 600; }
+      #subscription { font-family: monospace; }
+    </style>
+    <script src="notification.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <h1>Notification API</h1>
+      <p>Uprawnienie do powiadomień: <strong id="permission">?</strong></p>
+      <button id="enable" type="button">Włącz powiadomienia</button>
+      <button id="local" type="button">Powiadomienie ze strony</button>
+      <button id="sw" type="button">Powiadomienie z service workera</button>
+
+      <h2>Własne powiadomienie</h2>
+      <form id="notify-form" novalidate>
+        <fieldset>
+          <legend>Formularz powiadomienia</legend>
+          <label for="title">Tytuł (wymagany)</label>
+          <input id="title" name="title" type="text" required aria-describedby="error" />
+          <label for="body">Treść</label>
+          <textarea id="body" name="body" rows="3"></textarea>
+          <label for="icon">Ikona</label>
+          <select id="icon" name="icon">
+            <option value="android.png">Android</option>
+            <option value="bell.png">Dzwonek</option>
+            <option value="mail.png">Koperta</option>
+          </select>
+          <p id="error" role="alert"></p>
+          <button type="submit">Wyślij powiadomienie</button>
+        </fieldset>
+      </form>
+
+      <h2>Web Push</h2>
+      <button id="subscribe" type="button">Subskrybuj powiadomienia push</button>
+      <button id="unsubscribe" type="button">Anuluj subskrypcję</button>
+      <p>
+        <label for="subscription">Subskrypcja (skopiuj do pliku lab_02/subscription.json):</label>
+        <textarea id="subscription" rows="10" readonly></textarea>
+      </p>
+      <button id="copy" type="button">Kopiuj subskrypcję</button>
+    </main>
+  </body>
+</html>
