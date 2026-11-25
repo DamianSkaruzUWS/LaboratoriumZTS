@@ -21,13 +21,13 @@ Aplikacja uruchomi się lokalnie w przeglądarce.
 ![Błąd](screeny/blad.png)
 
 ### 2. Lista osób
-![Lista osób](screeny/listaosob.png)
+![Lista osób](screeny/ListaOsob.png)
 
 ### 3. Obserwowani
 ![Obserwowani](screeny/Obserwowani.png)
 
 ### 4. Szczegóły
-![Szczegóły](screeny/szczegoly.png)
+![Szczegóły](screeny/Szczegoly.png)
 
 ### 5. Wysłane
 ![Wysłane](screeny/wyslane.png)
